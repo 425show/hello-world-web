@@ -44,7 +44,6 @@ jobs:
     - name: Azure CLI script file
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
         inlineScript: |
           chmod +x $GITHUB_WORKSPACE/aad-deploy.sh
           $GITHUB_WORKSPACE/aad-deploy.sh
