@@ -9,7 +9,7 @@ RRA='[{"resourceAppId":"00000003-0000-0000-c000-000000000000", "resourceAccess":
 az ad app show --id $APP_ID_URI --query "appId" -o tsv --only-show-errors > /dev/null
 if [ $? = 0 ]
     then APP_ID=$(az ad app show --id $APP_ID_URI --query "appId" -o tsv);
-    else APP_ID=$(az ad app create --display-name $APP_NAME --identifier-uris $APP_ID_URI --required-resource-accesses "$RRA" -o tsv --query "appId");
+    else APP_ID=$(az ad app create --display-name $APP_NAME --identifier-uris $APP_ID_URI --required-resource-accesses "$RRA" --reply-urls "https://aad-deployed-app.azurewebsites.net/signin-oidc" -o tsv --query "appId");
 fi
 
 # find/create service principal, for consent
