@@ -1,0 +1,18 @@
+@{
+  ViewData["Title"] = "User Page";
+}
+
+@foreach(var user in Model)
+{
+  <dl class"row">
+    <dt class="col-sm-3">Display name</dt>
+    <dd class="col-sm-9">@user.DisplayName</dd> 
+
+    <dt class="col-sm-3">Email</dt>
+    <dd class="col-sm-9">@user.Mail</dd>
+
+    <dt class="col-sm-3">id</dt>
+    <dd class="col-sm-9">@user.Id</dd>
+  </dl>
+  <div>----------------------------------------------</div>
+}
