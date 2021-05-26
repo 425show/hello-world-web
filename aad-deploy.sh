@@ -36,7 +36,7 @@ fi
 # add client secret
 APP_OBJECT_ID=$(az ad app show --id "api://apps.jpd.ms/userlist/client" --query "objectId" -o tsv)
 APP_SECRET=$(az rest --url "https://graph.microsoft.com/v1.0/applications/"$APP_OBJECT_ID"/addPassword" --resource "https://graph.microsoft.com/" --method post --body "{'passwordCredential':{'displayName':'automated-secret'}}" --query "secretText" -o tsv)
-echo $APP_SECRET
+# echo $APP_SECRET
 
 # update azure app service configuration
 az webapp config appsettings delete -g $RESOURCE_GROUP -n $APPSERVICE_NAME --setting-names AzureAd__ClientId AzureAd__ClientSecret
