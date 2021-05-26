@@ -39,6 +39,7 @@ APP_SECRET=$(az rest --url "https://graph.microsoft.com/v1.0/applications/"$APP_
 echo $APP_SECRET
 
 # update azure app service configuration
+az webapp config appsettings delete -g $RESOURCE_GROUP -n $APPSERVICE_NAME --setting-names AzureAd__ClientId AzureAd__ClientSecret
 az webapp config appsettings set -g $RESOURCE_GROUP -n $APPSERVICE_NAME --settings AzureAD__ClientId=$APP_ID
 az webapp config appsettings set -g $RESOURCE_GROUP -n $APPSERVICE_NAME --settings AzureAD__ClientSecret=$APP_SECRET
 
