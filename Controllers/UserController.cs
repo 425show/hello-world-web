@@ -25,7 +25,7 @@ namespace IdentityWeb.Controllers
     {
       var users = await _graphServiceClient.Users
         .Request()
-        .Top(10)
+        .Top(7)
         .GetAsync();
 
       return View(users);
